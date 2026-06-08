@@ -1,8 +1,8 @@
 # PROJECT_STATE.md
 
 ## Current Status
-Phase: 2 — Core Reusable Widgets
-Step: 2.15.1 — ErrorListTile Widget
+Phase: 3 — Frontend Screens
+Step: 3.1.9 — Dashboard Share Functionality
 Status: Awaiting Verification
 
 ## Completed Steps
@@ -46,28 +46,23 @@ Status: Awaiting Verification
 - [2.12.1] StatCard Widget — Verified ✅
 - [2.13.1] SettingsTile Widget — Verified ✅
 - [2.14.1] InfoRow Widget — Verified ✅
+- [2.15.1] ErrorListTile Widget — Verified ✅
 
 ## Current Step Detail
-Created `ErrorListTile` in `lib/core/widgets/error_list_tile.dart`. Engineered precisely to `FRONTEND_SKILL.md` Section 5.15. Bound directly to the `ErrorEntry` model created in Phase 1. Mapped the database severity string safely to a `SeverityLevel` enum to render the correct `SeverityChip`. Formatted the timestamp using a custom helper to produce the `MMM d, yyyy - HH:mm` spec. Configured layout as a Column inside a white `Container` separated by 1px bottom border strokes. Truncated the error description message with `maxLines: 2` and ellipsis overflow. Replaced the `DashboardScreen` body with a dummy `ListView` showing two `ErrorListTile` instances (one critical, one info).
+Wired up the share icon inside the `DashboardAppBar`. Used `ref.read(dashboardProvider)` to instantly grab the latest emitted `BatteryStatus`. We then invoke `Share.share()` from the `share_plus` plugin to summon the native OS share sheet, passing in a dynamically generated string formatted as `"Ohmitron BMS: {SOC}%, {Voltage}V, {State}"`.
 
 ## Pending Steps
-### Phase 2 — Core Reusable Widgets (15 widgets)
-- [x] 2.1.1 — AppButton Widget
-- [x] 2.2.1 — AppTextField Widget
-- [x] 2.3.1 — AppBadge Widget
-- [x] 2.4.1 — SeverityChip Widget
-- [x] 2.5.1 — LoadingIndicator Widget
-- [x] 2.6.1 — EmptyStateWidget
-- [x] 2.7.1 — ConfirmationDialog Widget
-- [x] 2.8.1 — StaleDataBanner Widget
-- [x] 2.9.1 — AppErrorWidget
-- [x] 2.10.1 — NotificationItem Widget
-- [x] 2.11.1 — ProgressRing Widget
-- [x] 2.12.1 — StatCard Widget
-- [x] 2.13.1 — SettingsTile Widget
-- [x] 2.14.1 — InfoRow Widget
-- [/] 2.15.1 — ErrorListTile Widget
 ### Phase 3 — Frontend Screens (11 screens)
+- [x] 3.1.1 — Dashboard Provider
+- [x] 3.1.2 — Dashboard StatCard Sub-Widget (Built in Phase 2)
+- [x] 3.1.3 — Dashboard App Bar
+- [x] 3.1.4 — Dashboard Sidebar (Drawer)
+- [x] 3.1.5 — Dashboard Body — Loading State
+- [x] 3.1.6 — Dashboard Body — Battery Gauge and Stats Grid
+- [x] 3.1.7 — Dashboard Body — Status Section
+- [x] 3.1.8 — Dashboard Body — Error Summary Row and Stale Banner
+- [x] 3.1.9 — Dashboard Share Functionality
+- [ ] 3.2.1 — Auth Provider
 ### Phase 4 — Navigation and Flow
 ### Phase 5 — Mock Layer and Testing
 ### Phase 6 — Backend
