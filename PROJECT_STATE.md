@@ -2,7 +2,7 @@
 
 ## Current Status
 Phase: 3 — Frontend Screens
-Step: 3.1.9 — Dashboard Share Functionality
+Step: 3.3.1 — Forgot Password Screen
 Status: Awaiting Verification
 
 ## Completed Steps
@@ -49,7 +49,7 @@ Status: Awaiting Verification
 - [2.15.1] ErrorListTile Widget — Verified ✅
 
 ## Current Step Detail
-Wired up the share icon inside the `DashboardAppBar`. Used `ref.read(dashboardProvider)` to instantly grab the latest emitted `BatteryStatus`. We then invoke `Share.share()` from the `share_plus` plugin to summon the native OS share sheet, passing in a dynamically generated string formatted as `"Ohmitron BMS: {SOC}%, {Voltage}V, {State}"`.
+Built the `ForgotPasswordScreen` combining a 2-state stepper and `AnimatedSwitcher` to transition smoothly between email entry (State 1) and confirmation (State 2) via `SlideTransition`. Leveraged `forgotPasswordProvider` mapping to `MockBatteryDataSource` to coordinate state, completely avoiding `StatefulWidget`. Updated `app_router.dart` for the `/forgot-password` route.
 
 ## Pending Steps
 ### Phase 3 — Frontend Screens (11 screens)
@@ -62,7 +62,10 @@ Wired up the share icon inside the `DashboardAppBar`. Used `ref.read(dashboardPr
 - [x] 3.1.7 — Dashboard Body — Status Section
 - [x] 3.1.8 — Dashboard Body — Error Summary Row and Stale Banner
 - [x] 3.1.9 — Dashboard Share Functionality
-- [ ] 3.2.1 — Auth Provider
+- [x] 3.2.1 — Auth Provider
+- [x] 3.2.2 — Login Tab
+- [x] 3.2.3 — Sign Up Tab
+- [x] 3.3.1 — Forgot Password Screen
 ### Phase 4 — Navigation and Flow
 ### Phase 5 — Mock Layer and Testing
 ### Phase 6 — Backend

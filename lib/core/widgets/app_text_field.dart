@@ -10,6 +10,11 @@ class AppTextField extends StatelessWidget {
   final String label;
   final String? hintText;
   final String? errorText;
+  final String? helperText;
+  final int? maxLength;
+  final bool readOnly;
+  final Widget? customSuffixIcon;
+  final String? value;
   final bool isPassword;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
@@ -23,6 +28,11 @@ class AppTextField extends StatelessWidget {
     required this.label,
     this.hintText,
     this.errorText,
+    this.helperText,
+    this.maxLength,
+    this.readOnly = false,
+    this.customSuffixIcon,
+    this.value,
     this.isPassword = false,
     this.controller,
     this.keyboardType,
@@ -51,16 +61,20 @@ class AppTextField extends StatelessWidget {
             return SizedBox(
               height: 56, // Fixed height for the field itself
               child: TextField(
-                controller: controller,
+                controller: value != null ? TextEditingController(text: value) : controller,
                 focusNode: focusNode,
                 obscureText: obscure,
                 keyboardType: keyboardType,
                 textInputAction: textInputAction,
                 onChanged: onChanged,
                 onSubmitted: onSubmitted,
+                readOnly: readOnly,
+                maxLength: maxLength,
                 style: AppTextStyles.bodyLarge.copyWith(color: AppColors.black),
                 decoration: InputDecoration(
                   hintText: hintText,
+                  helperText: helperText,
+                  counterText: '', // Hide default counter for maxLength
                   hintStyle: AppTextStyles.bodyLarge.copyWith(color: AppColors.disabled),
                   filled: true,
                   fillColor: AppColors.surface,
@@ -73,7 +87,7 @@ class AppTextField extends StatelessWidget {
                   focusedBorder: _buildBorder(AppColors.brandGreen),
                   errorBorder: _buildBorder(AppColors.errorRed),
                   focusedErrorBorder: _buildBorder(AppColors.errorRed),
-                  suffixIcon: isPassword
+                  suffixIcon: customSuffixIcon ?? (isPassword
                       ? IconButton(
                           icon: Icon(
                             obscure ? Icons.visibility_off : Icons.visibility,
@@ -83,7 +97,7 @@ class AppTextField extends StatelessWidget {
                             _obscureText.value = !_obscureText.value;
                           },
                         )
-                      : null,
+                      : null),
                 ),
               ),
             );

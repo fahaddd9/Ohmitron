@@ -1,8 +1,10 @@
-
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../features/account/account_screen.dart';
+import '../../features/auth/presentation/auth_screen.dart';
+import '../../features/auth/presentation/forgot_password_screen.dart';
 import '../../features/auth/connection_type_screen.dart';
 import '../../features/auth/serial_entry_screen.dart';
 import '../../features/dashboard/basic_info_screen.dart';
@@ -16,7 +18,7 @@ import '../../features/splash/splash_screen.dart';
 /// Defined by TRD.md Section 6.1 and 6.2.
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/dashboard',
+    initialLocation: '/auth',
     // Keeping guard simple for Step 1.6.1 as auth is not wired yet
     redirect: (context, state) {
       return null; 
@@ -29,6 +31,18 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/serial-entry',
         builder: (context, state) => const SerialEntryScreen(),
+      ),
+      GoRoute(
+        path: '/auth',
+        builder: (context, state) => const AuthScreen(),
+      ),
+      GoRoute(
+        path: '/forgot-password',
+        builder: (context, state) => const ForgotPasswordScreen(),
+      ),
+      GoRoute(
+        path: '/provisioning',
+        builder: (context, state) => const Scaffold(body: Center(child: Text('Provisioning'))),
       ),
       GoRoute(
         path: '/connection-type',
