@@ -16,7 +16,7 @@ import '../../features/splash/splash_screen.dart';
 /// Defined by TRD.md Section 6.1 and 6.2.
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/splash',
+    initialLocation: '/dashboard',
     // Keeping guard simple for Step 1.6.1 as auth is not wired yet
     redirect: (context, state) {
       return null; 

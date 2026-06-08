@@ -1,8 +1,8 @@
 # PROJECT_STATE.md
 
 ## Current Status
-Phase: 1 — Project Foundation
-Step: 1.6.2 — Wire router to app
+Phase: 2 — Core Reusable Widgets
+Step: 2.15.1 — ErrorListTile Widget
 Status: Awaiting Verification
 
 ## Completed Steps
@@ -31,40 +31,42 @@ Status: Awaiting Verification
 - [1.5.5] MockBatteryDataSource — Error and notification methods — Verified ✅
 - [1.5.6] Data source provider — Verified ✅
 - [1.6.1] Define all routes (placeholder screens) — Verified ✅
+- [1.6.2] Wire router to app — Verified ✅
+- [2.1.1] AppButton Widget — Verified ✅
+- [2.2.1] AppTextField Widget — Verified ✅
+- [2.3.1] AppBadge Widget — Verified ✅
+- [2.4.1] SeverityChip Widget — Verified ✅
+- [2.5.1] LoadingIndicator Widget — Verified ✅
+- [2.6.1] EmptyStateWidget — Verified ✅
+- [2.7.1] ConfirmationDialog Widget — Verified ✅
+- [2.8.1] StaleDataBanner Widget — Verified ✅
+- [2.9.1] AppErrorWidget — Verified ✅
+- [2.10.1] NotificationItem Widget — Verified ✅
+- [2.11.1] ProgressRing Widget — Verified ✅
+- [2.12.1] StatCard Widget — Verified ✅
+- [2.13.1] SettingsTile Widget — Verified ✅
+- [2.14.1] InfoRow Widget — Verified ✅
 
 ## Current Step Detail
-Wired `appRouterProvider` into `lib/main.dart` using `MaterialApp.router`. Wrapped the app with `ProviderScope` to enable Riverpod state management. The app now successfully boots and loads the `SplashScreen` via the configured router and theme.
+Created `ErrorListTile` in `lib/core/widgets/error_list_tile.dart`. Engineered precisely to `FRONTEND_SKILL.md` Section 5.15. Bound directly to the `ErrorEntry` model created in Phase 1. Mapped the database severity string safely to a `SeverityLevel` enum to render the correct `SeverityChip`. Formatted the timestamp using a custom helper to produce the `MMM d, yyyy - HH:mm` spec. Configured layout as a Column inside a white `Container` separated by 1px bottom border strokes. Truncated the error description message with `maxLines: 2` and ellipsis overflow. Replaced the `DashboardScreen` body with a dummy `ListView` showing two `ErrorListTile` instances (one critical, one info).
 
 ## Pending Steps
-### Phase 1 — Project Foundation
-- [x] 1.1.1 — Create Flutter project
-- [x] 1.1.2 — Create PROJECT_STATE.md
-- [x] 1.1.3 — Configure pubspec.yaml
-- [x] 1.1.4 — Create asset folders and add logo
-- [x] 1.1.5 — Configure Android build files
-- [x] 1.1.6 — Configure analysis_options.yaml
-- [x] 1.2.1 — App colours
-- [x] 1.2.2 — App spacing
-- [x] 1.2.3 — App text styles
-- [x] 1.2.4 — App strings
-- [x] 1.2.5 — App config
-- [x] 1.3.1 — Build AppTheme
-- [x] 1.4.1 — BatteryStatus model
-- [x] 1.4.2 — DeviceInfo model
-- [x] 1.4.3 — ErrorEntry model
-- [x] 1.4.4 — AppNotification model
-- [x] 1.4.5 — AppUser model
-- [x] 1.4.6 — WifiNetwork model
-- [x] 1.5.1 — Abstract BatteryDataSource interface
-- [x] 1.5.2 — MockBatteryDataSource — Auth methods
-- [x] 1.5.3 — MockBatteryDataSource — Device methods
-- [x] 1.5.4 — MockBatteryDataSource — Telemetry stream
-- [x] 1.5.5 — MockBatteryDataSource — Error and notification methods
-- [x] 1.5.6 — Data source provider
-- [x] 1.6.1 — Define all routes (placeholder screens)
-- [/] 1.6.2 — Wire router to app
-
 ### Phase 2 — Core Reusable Widgets (15 widgets)
+- [x] 2.1.1 — AppButton Widget
+- [x] 2.2.1 — AppTextField Widget
+- [x] 2.3.1 — AppBadge Widget
+- [x] 2.4.1 — SeverityChip Widget
+- [x] 2.5.1 — LoadingIndicator Widget
+- [x] 2.6.1 — EmptyStateWidget
+- [x] 2.7.1 — ConfirmationDialog Widget
+- [x] 2.8.1 — StaleDataBanner Widget
+- [x] 2.9.1 — AppErrorWidget
+- [x] 2.10.1 — NotificationItem Widget
+- [x] 2.11.1 — ProgressRing Widget
+- [x] 2.12.1 — StatCard Widget
+- [x] 2.13.1 — SettingsTile Widget
+- [x] 2.14.1 — InfoRow Widget
+- [/] 2.15.1 — ErrorListTile Widget
 ### Phase 3 — Frontend Screens (11 screens)
 ### Phase 4 — Navigation and Flow
 ### Phase 5 — Mock Layer and Testing
