@@ -1,0 +1,61 @@
+name: ohmitron
+description: Ohmitron Battery Monitor App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.12.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase
+  firebase_core: ^3.13.1
+  firebase_auth: ^5.5.2
+  cloud_firestore: ^5.6.6
+  firebase_messaging: ^15.2.5
+  flutter_local_notifications: ^18.0.1
+
+  # State Management
+  flutter_riverpod: ^3.3.1
+
+  # Navigation
+  go_router: ^14.8.0
+
+  # Data Models
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # BLE
+  flutter_blue_plus: ^1.35.3
+  permission_handler: ^12.0.0+1
+
+  # UI and Assets
+  flutter_svg: ^2.0.17
+  google_fonts: ^6.2.1
+  barcode_widget: ^2.0.4
+
+  # Utilities
+  screenshot: ^3.0.0
+  share_plus: ^10.1.4
+  intl: ^0.19.0
+  uuid: ^4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+  # Build Tools
+  build_runner: ^2.4.15
+  freezed: ^3.0.0
+  json_serializable: ^6.9.5
+  mockito: ^5.4.5
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
