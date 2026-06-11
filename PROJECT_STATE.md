@@ -49,7 +49,7 @@ Status: Awaiting Verification
 - [2.15.1] ErrorListTile Widget — Verified ✅
 
 ## Current Step Detail
-Built the `BasicInfoScreen` and `BasicInfoNotifier`. Implemented the layout rendering device information fetched via the mock `BatteryDataSourceProvider`. The screen includes a working inline name editor that validates input and updates the state. It also features a `BarcodeWidget` generating a Code 128 barcode from the serial number. The `app_router.dart` was updated with a custom `SlideTransition` to animate the screen sliding up from the bottom as required by the blueprint.
+Built the `ErrorReportScreen` and `ErrorReportNotifier`. The screen retrieves the BMS error history using `getErrors()` from the mock data source and renders it with `ErrorListTile`. It correctly implements the slide-up transition animation matching the blueprint, and handles empty states using the pre-built `EmptyStateWidget` and loading states gracefully.
 
 ## Pending Steps
 ### Phase 3 — Frontend Screens (11 screens)
@@ -71,7 +71,7 @@ Built the `BasicInfoScreen` and `BasicInfoNotifier`. Implemented the layout rend
 - [x] 3.5.1 — Provisioning Screen
 - [x] 3.6.1 — Connection Type Screen
 - [x] 3.7.1 — Basic Information Screen
-- [ ] 3.8.1 — Error Report Screen
+- [x] 3.8.1 — Error Report Screen
 - [ ] 3.9.1 — Notifications Screen
 - [ ] 3.10.1 — Account Screen
 ### Phase 4 — Navigation and Flow
@@ -92,4 +92,4 @@ Built the `BasicInfoScreen` and `BasicInfoNotifier`. Implemented the layout rend
 (none)
 
 ## Next Step
-Phase 3, Step 3.8.1 — Error Report Screen
+Phase 3, Step 3.9.1 — Notifications Screen

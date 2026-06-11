@@ -21,7 +21,7 @@ import '../../features/splash/splash_screen.dart';
 /// Defined by TRD.md Section 6.1 and 6.2.
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/auth',
+    initialLocation: '/error-report',
     // Keeping guard simple for Step 1.6.1 as auth is not wired yet
     redirect: (context, state) {
       final connectionTypeSeen = ref.read(connectionTypeSeenProvider);
@@ -77,7 +77,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: '/error-report',
-        builder: (context, state) => const ErrorReportScreen(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const ErrorReportScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            final tween = Tween(begin: const Offset(0, 1), end: Offset.zero)
+                .chain(CurveTween(curve: Curves.easeOutCubic));
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 350),
+        ),
       ),
       GoRoute(
         path: '/notifications',
