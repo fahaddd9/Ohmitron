@@ -2,7 +2,7 @@
 
 ## Current Status
 Phase: 3 — Frontend Screens
-Step: 3.3.1 — Forgot Password Screen
+Step: 3.4.1 & 3.4.2 — Serial Entry Screen
 Status: Awaiting Verification
 
 ## Completed Steps
@@ -49,7 +49,7 @@ Status: Awaiting Verification
 - [2.15.1] ErrorListTile Widget — Verified ✅
 
 ## Current Step Detail
-Built the `ForgotPasswordScreen` combining a 2-state stepper and `AnimatedSwitcher` to transition smoothly between email entry (State 1) and confirmation (State 2) via `SlideTransition`. Leveraged `forgotPasswordProvider` mapping to `MockBatteryDataSource` to coordinate state, completely avoiding `StatefulWidget`. Updated `app_router.dart` for the `/forgot-password` route.
+Built the `BasicInfoScreen` and `BasicInfoNotifier`. Implemented the layout rendering device information fetched via the mock `BatteryDataSourceProvider`. The screen includes a working inline name editor that validates input and updates the state. It also features a `BarcodeWidget` generating a Code 128 barcode from the serial number. The `app_router.dart` was updated with a custom `SlideTransition` to animate the screen sliding up from the bottom as required by the blueprint.
 
 ## Pending Steps
 ### Phase 3 — Frontend Screens (11 screens)
@@ -66,6 +66,14 @@ Built the `ForgotPasswordScreen` combining a 2-state stepper and `AnimatedSwitch
 - [x] 3.2.2 — Login Tab
 - [x] 3.2.3 — Sign Up Tab
 - [x] 3.3.1 — Forgot Password Screen
+- [x] 3.4.1 — Serial Entry Provider
+- [x] 3.4.2 — Serial Entry Screen
+- [x] 3.5.1 — Provisioning Screen
+- [x] 3.6.1 — Connection Type Screen
+- [x] 3.7.1 — Basic Information Screen
+- [ ] 3.8.1 — Error Report Screen
+- [ ] 3.9.1 — Notifications Screen
+- [ ] 3.10.1 — Account Screen
 ### Phase 4 — Navigation and Flow
 ### Phase 5 — Mock Layer and Testing
 ### Phase 6 — Backend
@@ -77,9 +85,11 @@ Built the `ForgotPasswordScreen` combining a 2-state stepper and `AnimatedSwitch
 - [Step 1.1.1] Flutter generated Kotlin build scripts (build.gradle.kts) instead of Groovy (build.gradle). This is the default for Flutter 3.44.0.
 - [Step 1.1.3] Removed riverpod_annotation, riverpod_generator, riverpod_lint, and custom_lint from pubspec due to version incompatibility. TRD specified forward-looking versions that don't exist on pub.dev. The project uses flutter_riverpod 3.3.1 directly with manual Notifier/AsyncNotifier patterns as all project docs describe. Code generation is not required.
 - [Step 1.1.3] Placeholder SVG logos created in assets/images/ — will be replaced with final brand assets.
+- [Step 3.5.1] Implemented real `permission_handler` logic mixed with mocked returns to gracefully handle Android permissions during the Wi-Fi provisioning BLE mock scan.
+- [Step 3.6.1] Implemented `ConnectionTypeSeenNotifier` as an in-memory riverpod provider instead of `shared_preferences` since the `shared_preferences` package was not requested in TRD pubspec dependencies.
 
 ## Known Issues / Blockers
 (none)
 
 ## Next Step
-1.1.6 — Configure analysis_options.yaml
+Phase 3, Step 3.8.1 — Error Report Screen
