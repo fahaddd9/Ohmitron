@@ -30,8 +30,8 @@ class SignUpTab extends ConsumerWidget {
           ),
         );
       } else if (next is AsyncData && next.value != null && previous?.value == null) {
-        // Success -> follow pending serial logic or navigate to serial-entry
-        context.go('/serial-entry');
+        // Success -> navigate to provisioning
+        context.push('/provisioning');
       }
     });
 

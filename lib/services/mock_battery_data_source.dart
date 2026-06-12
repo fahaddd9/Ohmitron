@@ -61,6 +61,7 @@ class MockBatteryDataSource implements BatteryDataSource {
       name: 'Test User',
       email: email,
       dob: DateTime(1995, 5, 5),
+      deviceSerial: 'OHM00123456',
       createdAt: DateTime.now().subtract(const Duration(days: 10)),
     );
   }
@@ -81,6 +82,7 @@ class MockBatteryDataSource implements BatteryDataSource {
       name: name,
       email: email,
       dob: dob,
+      deviceSerial: 'OHM00123456',
       createdAt: DateTime.now(),
     );
   }

@@ -28,8 +28,8 @@ class LoginTab extends ConsumerWidget {
           ),
         );
       } else if (next is AsyncData && next.value != null && previous?.value == null) {
-        // Success login -> follow pending serial logic or navigate to serial-entry
-        context.go('/serial-entry');
+        // Success login -> navigate to provisioning
+        context.push('/provisioning');
       }
     });
 

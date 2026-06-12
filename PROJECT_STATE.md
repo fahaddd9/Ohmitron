@@ -1,8 +1,8 @@
 # PROJECT_STATE.md
 
 ## Current Status
-Phase: 3 — Frontend Screens
-Step: 3.11.1 — Splash Screen
+Phase: 4 — Navigation and Flow
+Step: 4.1.1 & 4.2.1 — Page Transitions + Route Guards
 Status: Awaiting Verification
 
 ## Completed Steps
@@ -50,9 +50,10 @@ Status: Awaiting Verification
 - [3.10.1] Account Provider — Verified ✅
 - [3.10.2] Account Screen — Profile & Security Sections — Verified ✅
 - [3.10.3] Account Screen — Device & Account Sections — Verified ✅
+- [3.11.1] Splash Screen — Verified ✅
 
 ## Current Step Detail
-Built the `SplashScreen` as a `ConsumerStatefulWidget` with a 600ms `FadeTransition` (easeOutCubic) that starts immediately on mount. A 2-second `Timer` fires `context.go('/serial-entry')` replacing the stack. Silent auth warmup runs in parallel via `ref.read(authProvider.future).ignore()`. The splash route uses a 400ms fade exit transition in GoRouter.
+Rewrote `app_router.dart` with: (4.1.1) Three named transition helpers — `_slideRight` (300ms, standard push), `_slideUp` (350ms, detail screens), `_fade` (400ms, Dashboard entry + Splash exit) — applied correctly to every route. (4.2.1) Full redirect guard reading `authProvider`, `connectionTypeSeenProvider`: protected routes redirect to `/serial-entry` if not authenticated or no paired device; `/connection-type` redirects to `/dashboard` if already seen.
 
 ## Pending Steps
 ### Phase 3 — Frontend Screens (11 screens)
@@ -98,4 +99,4 @@ Built the `SplashScreen` as a `ConsumerStatefulWidget` with a 600ms `FadeTransit
 (none)
 
 ## Next Step
-Phase 4, Step 4.1.1 — Implement All Custom Page Transitions
+Phase 4, Step 4.3.1 — Complete New User Flow (Manual Verification)

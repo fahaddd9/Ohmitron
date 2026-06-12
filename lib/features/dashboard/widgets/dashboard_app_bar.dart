@@ -5,6 +5,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../providers/dashboard_provider.dart';
 import '../providers/unread_count_provider.dart';
+import 'package:go_router/go_router.dart';
 import 'package:share_plus/share_plus.dart';
 
 /// The top app bar for the dashboard screen.
@@ -49,7 +50,7 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
             IconButton(
               icon: const Icon(Icons.notifications_none, color: AppColors.black),
               onPressed: () {
-                // TODO: Navigate to notifications
+                context.push('/notifications');
               },
             ),
             if (unreadCount > 0)
@@ -82,7 +83,7 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.person_outline, color: AppColors.black),
           onPressed: () {
-            // TODO: Navigate to account
+            context.push('/account');
           },
         ),
       ],
