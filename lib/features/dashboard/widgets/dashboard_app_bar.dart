@@ -37,7 +37,7 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
             final batteryAsync = ref.read(dashboardProvider);
             batteryAsync.whenData((status) {
               final state = status.current > 0 ? 'Charging' : (status.current < 0 ? 'Discharging' : 'Idle');
-              final shareText = 'Ohmitron BMS: ${(status.stateOfCharge ?? 0).toStringAsFixed(1)}% SOC, '
+              final shareText = 'Ohmipower BMS: ${(status.stateOfCharge ?? 0).toStringAsFixed(1)}% SOC, '
                   '${status.voltage.toStringAsFixed(1)}V, $state';
               Share.share(shareText);
             });

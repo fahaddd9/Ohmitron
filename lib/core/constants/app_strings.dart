@@ -6,7 +6,7 @@ class AppStrings {
   const AppStrings._();
 
   // Common
-  static const String appName = 'Ohmitron';
+  static const String appName = 'Ohmipower';
   static const String cancel = 'Cancel';
   static const String save = 'Save';
   static const String ok = 'OK';

@@ -206,7 +206,7 @@ class MockBatteryDataSource implements BatteryDataSource {
     return DeviceInfo(
       ownerUid: _currentUser?.uid,
       provisioned: true,
-      friendlyName: 'Ohmitron Alpha',
+      friendlyName: 'Ohmipower Alpha',
       deviceModel: 'OHM-ESP32-V1',
       firmwareVersion: '1.2.4',
       bmsModel: 'JBD-SP04S034',
@@ -300,7 +300,7 @@ class MockBatteryDataSource implements BatteryDataSource {
       targetUserUid: 'mock-uid-1234',
       deviceSerial: 'OHM00123456',
       title: 'Welcome',
-      body: 'Your Ohmitron device is successfully paired.',
+      body: 'Your Ohmipower device is successfully paired.',
       timestamp: DateTime.now().subtract(const Duration(days: 1)),
       read: false,
     ),

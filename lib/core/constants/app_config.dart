@@ -9,7 +9,7 @@ class AppConfig {
   static const bool useMockData = true;
 
   // Debug flags — mock only, not present in production
-  static const bool mockIsLoggedIn = false;
+  static const bool mockIsLoggedIn = true;
   static const bool mockStaleData = false;
   static const bool mockHighTemp = false;
   static const bool mockLowSOC = false;

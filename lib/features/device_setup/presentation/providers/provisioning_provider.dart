@@ -66,7 +66,7 @@ class ProvisioningNotifier extends Notifier<ProvisioningData> {
       networks: const [
         WifiNetwork(ssid: 'HomeWiFi', signalStrength: -45),
         WifiNetwork(ssid: 'OfficeWiFi', signalStrength: -62),
-        WifiNetwork(ssid: 'Ohmitron_Lab', signalStrength: -71),
+        WifiNetwork(ssid: 'Ohmipower_Lab', signalStrength: -71),
         WifiNetwork(ssid: 'iPhone_Hotspot', signalStrength: -80),
       ],
     );

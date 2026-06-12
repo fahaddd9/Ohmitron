@@ -2,7 +2,7 @@
 
 ## Current Status
 Phase: 3 — Frontend Screens
-Step: 3.4.1 & 3.4.2 — Serial Entry Screen
+Step: 3.11.1 — Splash Screen
 Status: Awaiting Verification
 
 ## Completed Steps
@@ -47,9 +47,12 @@ Status: Awaiting Verification
 - [2.13.1] SettingsTile Widget — Verified ✅
 - [2.14.1] InfoRow Widget — Verified ✅
 - [2.15.1] ErrorListTile Widget — Verified ✅
+- [3.10.1] Account Provider — Verified ✅
+- [3.10.2] Account Screen — Profile & Security Sections — Verified ✅
+- [3.10.3] Account Screen — Device & Account Sections — Verified ✅
 
 ## Current Step Detail
-Built the `ErrorReportScreen` and `ErrorReportNotifier`. The screen retrieves the BMS error history using `getErrors()` from the mock data source and renders it with `ErrorListTile`. It correctly implements the slide-up transition animation matching the blueprint, and handles empty states using the pre-built `EmptyStateWidget` and loading states gracefully.
+Built the `SplashScreen` as a `ConsumerStatefulWidget` with a 600ms `FadeTransition` (easeOutCubic) that starts immediately on mount. A 2-second `Timer` fires `context.go('/serial-entry')` replacing the stack. Silent auth warmup runs in parallel via `ref.read(authProvider.future).ignore()`. The splash route uses a 400ms fade exit transition in GoRouter.
 
 ## Pending Steps
 ### Phase 3 — Frontend Screens (11 screens)
@@ -72,8 +75,11 @@ Built the `ErrorReportScreen` and `ErrorReportNotifier`. The screen retrieves th
 - [x] 3.6.1 — Connection Type Screen
 - [x] 3.7.1 — Basic Information Screen
 - [x] 3.8.1 — Error Report Screen
-- [ ] 3.9.1 — Notifications Screen
-- [ ] 3.10.1 — Account Screen
+- [x] 3.9.1 — Notifications Screen
+- [x] 3.10.1 — Account Provider
+- [x] 3.10.2 — Account Screen — Profile and Security Sections
+- [x] 3.10.3 — Account Screen — Device and Account Sections
+- [x] 3.11.1 — Splash Screen
 ### Phase 4 — Navigation and Flow
 ### Phase 5 — Mock Layer and Testing
 ### Phase 6 — Backend
@@ -92,4 +98,4 @@ Built the `ErrorReportScreen` and `ErrorReportNotifier`. The screen retrieves th
 (none)
 
 ## Next Step
-Phase 3, Step 3.9.1 — Notifications Screen
+Phase 4, Step 4.1.1 — Implement All Custom Page Transitions

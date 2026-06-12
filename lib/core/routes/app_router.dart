@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../features/account/account_screen.dart';
+import '../../features/account/presentation/account_screen.dart';
 import '../../features/auth/presentation/auth_screen.dart';
 import '../../features/auth/presentation/forgot_password_screen.dart';
 import '../../features/device_setup/presentation/connection_type_screen.dart';
@@ -13,7 +13,7 @@ import '../../features/device_setup/presentation/provisioning_screen.dart';
 import '../../features/dashboard/dashboard_screen.dart';
 import '../../features/basic_info/presentation/basic_info_screen.dart';
 import '../../features/dashboard/error_report_screen.dart';
-import '../../features/dashboard/notifications_screen.dart';
+import '../../features/notifications/presentation/notifications_screen.dart';
 import '../../features/splash/splash_screen.dart';
 
 /// The central router configuration for the application.
@@ -21,7 +21,7 @@ import '../../features/splash/splash_screen.dart';
 /// Defined by TRD.md Section 6.1 and 6.2.
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: '/error-report',
+    initialLocation: '/splash',
     // Keeping guard simple for Step 1.6.1 as auth is not wired yet
     redirect: (context, state) {
       final connectionTypeSeen = ref.read(connectionTypeSeenProvider);
@@ -33,7 +33,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     routes: [
       GoRoute(
         path: '/splash',
-        builder: (context, state) => const SplashScreen(),
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const SplashScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 400),
+        ),
       ),
       GoRoute(
         path: '/serial-entry',
